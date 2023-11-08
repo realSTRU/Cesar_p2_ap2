@@ -1,0 +1,66 @@
+com.example.cesar_p2_ap2.app-lifecycle-viewmodel-2.6.2-0 C:\Users\cesar\.gradle\caches\transforms-3\0054560ae5b50c973d792f96af6e1493\transformed\lifecycle-viewmodel-2.6.2\res
+com.example.cesar_p2_ap2.app-material-ripple-release-1 C:\Users\cesar\.gradle\caches\transforms-3\0347fe77adb1700345d90a28b0c0f8d7\transformed\material-ripple-release\res
+com.example.cesar_p2_ap2.app-navigation-runtime-2.7.2-2 C:\Users\cesar\.gradle\caches\transforms-3\1265d6a49d01fc858ed66438ee7b4f2f\transformed\navigation-runtime-2.7.2\res
+com.example.cesar_p2_ap2.app-core-1.12.0-3 C:\Users\cesar\.gradle\caches\transforms-3\1650bb71eacb8e394575055c8c764591\transformed\core-1.12.0\res
+com.example.cesar_p2_ap2.app-emoji2-1.4.0-4 C:\Users\cesar\.gradle\caches\transforms-3\17c91df810402502dbaf2070898f252a\transformed\emoji2-1.4.0\res
+com.example.cesar_p2_ap2.app-annotation-experimental-1.3.0-5 C:\Users\cesar\.gradle\caches\transforms-3\17fdec48549a0665fe0d4927e7b4e50d\transformed\annotation-experimental-1.3.0\res
+com.example.cesar_p2_ap2.app-activity-compose-1.7.2-6 C:\Users\cesar\.gradle\caches\transforms-3\1a726a05a15d210178d6625310183bf1\transformed\activity-compose-1.7.2\res
+com.example.cesar_p2_ap2.app-lifecycle-process-2.6.2-7 C:\Users\cesar\.gradle\caches\transforms-3\23bb34c42b3e346784825714629d21e0\transformed\lifecycle-process-2.6.2\res
+com.example.cesar_p2_ap2.app-core-ktx-1.12.0-8 C:\Users\cesar\.gradle\caches\transforms-3\246706934265c30b4ea90d6cc62d98a2\transformed\core-ktx-1.12.0\res
+com.example.cesar_p2_ap2.app-ui-geometry-release-9 C:\Users\cesar\.gradle\caches\transforms-3\301e90e4abd51a9a3fb38dbb00902a90\transformed\ui-geometry-release\res
+com.example.cesar_p2_ap2.app-navigation-common-ktx-2.7.2-10 C:\Users\cesar\.gradle\caches\transforms-3\32fac41ab1efc65ed5dc99d6d60b1d36\transformed\navigation-common-ktx-2.7.2\res
+com.example.cesar_p2_ap2.app-runtime-release-11 C:\Users\cesar\.gradle\caches\transforms-3\377e514791e89d9c6d4052c665af71d8\transformed\runtime-release\res
+com.example.cesar_p2_ap2.app-hilt-navigation-1.0.0-12 C:\Users\cesar\.gradle\caches\transforms-3\38dd8e675172d1bb50f51a201dea6b37\transformed\hilt-navigation-1.0.0\res
+com.example.cesar_p2_ap2.app-ui-tooling-release-13 C:\Users\cesar\.gradle\caches\transforms-3\3a6ab8970af509ec295369df60a3a538\transformed\ui-tooling-release\res
+com.example.cesar_p2_ap2.app-fragment-1.5.1-14 C:\Users\cesar\.gradle\caches\transforms-3\3ba5267e44fb072924f2e402d2653a3b\transformed\fragment-1.5.1\res
+com.example.cesar_p2_ap2.app-material-icons-core-release-15 C:\Users\cesar\.gradle\caches\transforms-3\3d2786de81caf13f914665f17884a3fc\transformed\material-icons-core-release\res
+com.example.cesar_p2_ap2.app-navigation-common-2.7.2-16 C:\Users\cesar\.gradle\caches\transforms-3\4dce2adcc2cbc789691ca863d096f814\transformed\navigation-common-2.7.2\res
+com.example.cesar_p2_ap2.app-sqlite-framework-2.3.1-17 C:\Users\cesar\.gradle\caches\transforms-3\51b9068c17e25dfafd35ccf9bbbc3544\transformed\sqlite-framework-2.3.1\res
+com.example.cesar_p2_ap2.app-lifecycle-runtime-compose-2.6.2-18 C:\Users\cesar\.gradle\caches\transforms-3\56a913f7b8d6ffe1bf062cc041c78750\transformed\lifecycle-runtime-compose-2.6.2\res
+com.example.cesar_p2_ap2.app-datastore-1.0.0-19 C:\Users\cesar\.gradle\caches\transforms-3\6152ac4675828273ab4afdfd35b34524\transformed\datastore-1.0.0\res
+com.example.cesar_p2_ap2.app-material-icons-extended-release-20 C:\Users\cesar\.gradle\caches\transforms-3\6a8059aaa03fc4f96e6a6c88338c2c57\transformed\material-icons-extended-release\res
+com.example.cesar_p2_ap2.app-activity-ktx-1.7.2-21 C:\Users\cesar\.gradle\caches\transforms-3\6b7c0fd650250e2188262dcd2cbd2676\transformed\activity-ktx-1.7.2\res
+com.example.cesar_p2_ap2.app-lifecycle-livedata-core-2.6.2-22 C:\Users\cesar\.gradle\caches\transforms-3\73b82d9850a4b6b585c9d0e04d40512d\transformed\lifecycle-livedata-core-2.6.2\res
+com.example.cesar_p2_ap2.app-ui-tooling-preview-release-23 C:\Users\cesar\.gradle\caches\transforms-3\74085b21a46b7f6a5605a9abae5168a0\transformed\ui-tooling-preview-release\res
+com.example.cesar_p2_ap2.app-runtime-saveable-release-24 C:\Users\cesar\.gradle\caches\transforms-3\823413f614dc1529b54552fbdb6b3c0a\transformed\runtime-saveable-release\res
+com.example.cesar_p2_ap2.app-ui-test-manifest-1.5.1-25 C:\Users\cesar\.gradle\caches\transforms-3\83edf50cc690f8264b98ea00d2185de0\transformed\ui-test-manifest-1.5.1\res
+com.example.cesar_p2_ap2.app-ui-unit-release-26 C:\Users\cesar\.gradle\caches\transforms-3\840c3145e8ecd2f6bcc4c066b5bfe6ce\transformed\ui-unit-release\res
+com.example.cesar_p2_ap2.app-profileinstaller-1.3.0-27 C:\Users\cesar\.gradle\caches\transforms-3\8d9ab17bfc41c1f63257dba7f3f0eaa8\transformed\profileinstaller-1.3.0\res
+com.example.cesar_p2_ap2.app-lifecycle-viewmodel-savedstate-2.6.2-28 C:\Users\cesar\.gradle\caches\transforms-3\8dbc42da5435016c95a8450cc249bb58\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
+com.example.cesar_p2_ap2.app-ui-release-29 C:\Users\cesar\.gradle\caches\transforms-3\9148c7c213a4666872a2789dbf37b053\transformed\ui-release\res
+com.example.cesar_p2_ap2.app-lifecycle-livedata-2.6.2-30 C:\Users\cesar\.gradle\caches\transforms-3\988802c240320a468af9dd2af77c155f\transformed\lifecycle-livedata-2.6.2\res
+com.example.cesar_p2_ap2.app-navigation-compose-2.7.2-31 C:\Users\cesar\.gradle\caches\transforms-3\9957cff9d4c28ac8bb435329b8a359e9\transformed\navigation-compose-2.7.2\res
+com.example.cesar_p2_ap2.app-lifecycle-viewmodel-compose-2.6.2-32 C:\Users\cesar\.gradle\caches\transforms-3\9b39d6f8ff9d31aabbbfe1c5165b821d\transformed\lifecycle-viewmodel-compose-2.6.2\res
+com.example.cesar_p2_ap2.app-sqlite-2.3.1-33 C:\Users\cesar\.gradle\caches\transforms-3\9e4edbf935c9f8d80dfba74c533d495c\transformed\sqlite-2.3.1\res
+com.example.cesar_p2_ap2.app-lifecycle-runtime-2.6.2-34 C:\Users\cesar\.gradle\caches\transforms-3\a2b7a17b57843f62b138f5b20d9b9155\transformed\lifecycle-runtime-2.6.2\res
+com.example.cesar_p2_ap2.app-room-ktx-2.5.2-35 C:\Users\cesar\.gradle\caches\transforms-3\a5743367e473302db1bbb4deb6fa632a\transformed\room-ktx-2.5.2\res
+com.example.cesar_p2_ap2.app-navigation-runtime-ktx-2.7.2-36 C:\Users\cesar\.gradle\caches\transforms-3\a9b46422592dd1f533918ce9ffebdaa3\transformed\navigation-runtime-ktx-2.7.2\res
+com.example.cesar_p2_ap2.app-savedstate-ktx-1.2.1-37 C:\Users\cesar\.gradle\caches\transforms-3\ad6fe42068811cf262223b4af71061fe\transformed\savedstate-ktx-1.2.1\res
+com.example.cesar_p2_ap2.app-customview-poolingcontainer-1.0.0-38 C:\Users\cesar\.gradle\caches\transforms-3\ae48a70144af2c7dd2650ce2d3faa5f3\transformed\customview-poolingcontainer-1.0.0\res
+com.example.cesar_p2_ap2.app-material-release-39 C:\Users\cesar\.gradle\caches\transforms-3\b2305706239dcac8376ea95a39f21545\transformed\material-release\res
+com.example.cesar_p2_ap2.app-startup-runtime-1.1.1-40 C:\Users\cesar\.gradle\caches\transforms-3\b4e7e784c48ad373fc8033d22eb954b5\transformed\startup-runtime-1.1.1\res
+com.example.cesar_p2_ap2.app-coil-base-2.1.0-41 C:\Users\cesar\.gradle\caches\transforms-3\c2d36b3f1fc3c4b350a58b1c7fa8525c\transformed\coil-base-2.1.0\res
+com.example.cesar_p2_ap2.app-datastore-preferences-1.0.0-42 C:\Users\cesar\.gradle\caches\transforms-3\c3a9a4ced53d7a3efa8d201e16c4ddf5\transformed\datastore-preferences-1.0.0\res
+com.example.cesar_p2_ap2.app-core-runtime-2.2.0-43 C:\Users\cesar\.gradle\caches\transforms-3\c3fbcc818b073643e8e2c9ce6eb56470\transformed\core-runtime-2.2.0\res
+com.example.cesar_p2_ap2.app-ui-text-release-44 C:\Users\cesar\.gradle\caches\transforms-3\cb5dada6e2484a8e1026c21ebab20383\transformed\ui-text-release\res
+com.example.cesar_p2_ap2.app-lifecycle-viewmodel-ktx-2.6.2-45 C:\Users\cesar\.gradle\caches\transforms-3\cf91724e7ff2a1c159d52209102fc9c3\transformed\lifecycle-viewmodel-ktx-2.6.2\res
+com.example.cesar_p2_ap2.app-hilt-navigation-compose-1.0.0-46 C:\Users\cesar\.gradle\caches\transforms-3\d34cfc240f783ecc5b4888015cc45bc0\transformed\hilt-navigation-compose-1.0.0\res
+com.example.cesar_p2_ap2.app-ui-graphics-release-47 C:\Users\cesar\.gradle\caches\transforms-3\d4879b41b1ec8f552cd69afba7ede3ed\transformed\ui-graphics-release\res
+com.example.cesar_p2_ap2.app-activity-1.7.2-48 C:\Users\cesar\.gradle\caches\transforms-3\d4cd146ced20762dafd8761b402b6999\transformed\activity-1.7.2\res
+com.example.cesar_p2_ap2.app-animation-release-49 C:\Users\cesar\.gradle\caches\transforms-3\dd30a1a1b8a824738b2398b9522de083\transformed\animation-release\res
+com.example.cesar_p2_ap2.app-ui-util-release-50 C:\Users\cesar\.gradle\caches\transforms-3\ddc073824b112ae5165639618af19acf\transformed\ui-util-release\res
+com.example.cesar_p2_ap2.app-foundation-layout-release-51 C:\Users\cesar\.gradle\caches\transforms-3\de5a6318c96f88b34d5e6642236ed4a1\transformed\foundation-layout-release\res
+com.example.cesar_p2_ap2.app-material3-1.1.1-52 C:\Users\cesar\.gradle\caches\transforms-3\ea12446af22f4d4fc0d3f4a0843507ae\transformed\material3-1.1.1\res
+com.example.cesar_p2_ap2.app-room-runtime-2.5.2-53 C:\Users\cesar\.gradle\caches\transforms-3\ecfa7438c192fbfa56ada8823869eb85\transformed\room-runtime-2.5.2\res
+com.example.cesar_p2_ap2.app-lifecycle-runtime-ktx-2.6.2-54 C:\Users\cesar\.gradle\caches\transforms-3\ee083e9c03fe78cef39e8dfc81edb5ae\transformed\lifecycle-runtime-ktx-2.6.2\res
+com.example.cesar_p2_ap2.app-animation-core-release-55 C:\Users\cesar\.gradle\caches\transforms-3\ef4cf8b886f405f43de1064f46b8fe6a\transformed\animation-core-release\res
+com.example.cesar_p2_ap2.app-foundation-release-56 C:\Users\cesar\.gradle\caches\transforms-3\f4f5ed334a2f73366477f87ade0463d2\transformed\foundation-release\res
+com.example.cesar_p2_ap2.app-ui-tooling-data-release-57 C:\Users\cesar\.gradle\caches\transforms-3\f6ed94f1e00acdcd564bc6e24c83daf7\transformed\ui-tooling-data-release\res
+com.example.cesar_p2_ap2.app-appcompat-resources-1.4.1-58 C:\Users\cesar\.gradle\caches\transforms-3\f7bc7ab3d41bdad8390f3013653a89a9\transformed\appcompat-resources-1.4.1\res
+com.example.cesar_p2_ap2.app-savedstate-1.2.1-59 C:\Users\cesar\.gradle\caches\transforms-3\f9899f3e2737cf6c0bac5cb6df62062e\transformed\savedstate-1.2.1\res
+com.example.cesar_p2_ap2.app-resValues-60 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\build\generated\res\resValues\debug
+com.example.cesar_p2_ap2.app-packageDebugResources-61 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.cesar_p2_ap2.app-packageDebugResources-62 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.cesar_p2_ap2.app-merged_res-63 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\build\intermediates\merged_res\debug
+com.example.cesar_p2_ap2.app-debug-64 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\src\debug\res
+com.example.cesar_p2_ap2.app-main-65 C:\Users\cesar\Desktop\Universidad\Cuatrimestre 3-2023\Aplicada II\Cesar_p2_ap2\app\src\main\res
