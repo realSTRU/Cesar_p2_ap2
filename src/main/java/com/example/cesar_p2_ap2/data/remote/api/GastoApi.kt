@@ -8,6 +8,8 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
+//API for comsuming from https://sag-api.azurewebsites.net/swagger/index.html
+
 interface GastoApi {
     @GET("api/Gastos")
     suspend fun getGastos(): List<GastoDto>
@@ -19,10 +21,4 @@ interface GastoApi {
     suspend fun postGasto(@Body gato : GastoDto, @Path("idGasto") idGasto: Int) : GastoDto
     @DELETE("api/Gastos/{id}")
     suspend fun deleteGasto(@Path("idGasto") idGasto: Int) : GastoDto
-
-
-
-
-
-
 }
