@@ -18,7 +18,7 @@ interface GastoApi {
     @POST("api/Gastos")
     suspend fun postGasto(@Body gato : GastoDto) : GastoDto
     @PUT("api/Gastos/{id}")
-    suspend fun postGasto(@Body gato : GastoDto, @Path("idGasto") idGasto: Int) : GastoDto
+    suspend fun putGasto(@Body gato : GastoDto, @Path("idGasto") idGasto: Int) : GastoDto
     @DELETE("api/Gastos/{id}")
     suspend fun deleteGasto(@Path("idGasto") idGasto: Int) : GastoDto
 }
