@@ -2,6 +2,7 @@
 /build
 /local.properties
 /.idea/caches
+/.gradle
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
