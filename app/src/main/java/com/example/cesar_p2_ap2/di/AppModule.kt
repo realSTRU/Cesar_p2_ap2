@@ -1,6 +1,7 @@
 package com.example.cesar_p2_ap2.di
 
 import com.example.cesar_p2_ap2.data.remote.api.GastoApi
+import com.example.cesar_p2_ap2.data.remote.api.SuplidorApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -32,6 +33,15 @@ object AppModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(GastoApi::class.java)
+    }
+    @Provides
+    @Singleton
+    fun provideSupliersApi(moshi: Moshi): SuplidorApi {
+        return Retrofit.Builder()
+            .baseUrl("https://sag-api.azurewebsites.net/")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(SuplidorApi::class.java)
     }
 
 }
