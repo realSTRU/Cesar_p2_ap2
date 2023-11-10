@@ -2,9 +2,11 @@ package com.example.cesar_p2_ap2.ui.Gastos
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +21,7 @@ import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.SaveAs
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ElevatedCard
@@ -27,11 +30,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -41,6 +48,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.cesar_p2_ap2.data.remote.dto.GastoDto
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -50,8 +58,22 @@ import java.time.format.DateTimeFormatter
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun GastosScreen (
-   gastos : List<GastoDto>
+    viewModel : GastosViewModel = hiltViewModel()
+   //gastos : List<GastoDto>
 ){
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(Unit) {
+        viewModel.isMessageShownFlow.collectLatest {
+            if (it) {
+                snackbarHostState.showSnackbar(
+                    message = viewModel.message,
+                    duration = SnackbarDuration.Short
+                )
+            }
+        }
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -65,9 +87,27 @@ fun GastosScreen (
                         .fillMaxWidth()
                         .padding(top = 70.dp)
                 ) {
-                    items(gastos) { gastos ->
-                        RowItemForAnGasto(gasto = gastos)
+
+                    when {
+                        uiState.isLoading -> {
+                            item {
+                                Box(
+                                    contentAlignment = Alignment.Center,
+                                    modifier = Modifier.fillMaxSize()
+                                ) {
+                                    CircularProgressIndicator()
+                                }
+                            }
+                        }
                     }
+                    uiState.gastos?.let {
+                        items(uiState.gastos){gasto->
+                            RowItemForAnGasto(gasto,viewModel)
+                        }
+                    }
+
+
+
                 }
                 //RowItemForAnGasto(gasto = GastoDto(idGasto = 1, concepto = "factura pasada", itbis = 1.00, monto = 10000.00, fecha = "10/10/2010", ncf = "009", suplidor = "Claro Dominicana" ))
             }
@@ -82,7 +122,7 @@ fun MainScreen(
 ){
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     uiState.gastos?.let { gastos ->
-        GastosScreen(gastos = gastos)
+        //GastosScreen(gastos = gastos)
     }
 
 }
@@ -110,7 +150,10 @@ fun Register()
 
 }
 @Composable
-fun RowItemForAnGasto(gasto : GastoDto)
+fun RowItemForAnGasto(
+    gasto : GastoDto,
+    viewModel : GastosViewModel = hiltViewModel()
+)
 {
     ElevatedCard(
 

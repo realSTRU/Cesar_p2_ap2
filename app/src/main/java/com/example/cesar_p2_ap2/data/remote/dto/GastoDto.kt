@@ -11,6 +11,8 @@ data class GastoDto (
     val idGasto : Int?,
     @Json(name = "fecha")
     val fecha : String,
+    @Json(name = "idSuplidor")
+    val idSuplidor : Int,
     @Json(name = "suplidor")
     val suplidor : String,
     @Json(name = "concepto")
