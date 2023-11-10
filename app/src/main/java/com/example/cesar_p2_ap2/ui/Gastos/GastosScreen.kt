@@ -1,6 +1,11 @@
 package com.example.cesar_p2_ap2.ui.Gastos
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Build
+import android.app.DatePickerDialog
+import android.widget.DatePicker
+import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,7 +21,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.SaveAs
@@ -28,8 +35,10 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
@@ -44,6 +53,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -54,6 +65,8 @@ import kotlinx.coroutines.flow.collectLatest
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Date
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -265,4 +278,49 @@ fun RowItemForAnGasto(
         }
 
     }
+}
+
+
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+@Composable
+fun showDatePicker(
+    context: Context,
+    modifier: Modifier,
+    gastosViewModel: GastosViewModel = hiltViewModel(),
+) {
+
+    val year: Int
+    val month: Int
+    val day: Int
+
+    val calendar = Calendar.getInstance()
+    year = calendar.get(Calendar.YEAR)
+    month = calendar.get(Calendar.MONTH)
+    day = calendar.get(Calendar.DAY_OF_MONTH)
+    calendar.time = Date()
+
+
+    val datePickerDialog = DatePickerDialog(
+        context,
+        { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
+            gastosViewModel.onFechaChange( "$dayOfMonth/$month/$year")
+        }, year, month, day
+    )
+    OutlinedTextField(
+        value = gastosViewModel.fecha,
+        onValueChange = { },
+        readOnly = true,
+        modifier = modifier,
+        isError = gastosViewModel.fechaError,
+        leadingIcon = { IconButton(onClick = {
+            datePickerDialog.show()
+        }) {
+            Icon(imageVector = Icons.Filled.DateRange, contentDescription ="date" )
+        }
+        },
+        label = { Text("Ingrese Fecha") },
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text,
+            imeAction = ImeAction.Next)
+    )
+
 }

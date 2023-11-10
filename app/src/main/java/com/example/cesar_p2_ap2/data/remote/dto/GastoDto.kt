@@ -1,5 +1,6 @@
 package com.example.cesar_p2_ap2.data.remote.dto
 
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -7,6 +8,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class GastoDto (
 
+    @PrimaryKey
     @Json(name = "idGasto")
     val idGasto : Int?,
     @Json(name = "fecha")
