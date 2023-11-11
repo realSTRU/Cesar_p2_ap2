@@ -9,7 +9,7 @@ import com.squareup.moshi.JsonClass
 data class SuplidorDto(
     @PrimaryKey
     @Json(name = "idSuplidor")
-    var idSuplidor : Int?=null,
+    var idSuplidor : Int?,
     @Json(name = "nombres")
     var nombres : String
 )

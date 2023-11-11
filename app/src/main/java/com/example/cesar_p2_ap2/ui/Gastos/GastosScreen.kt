@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.PlaylistAdd
+import androidx.compose.material.icons.outlined.CleaningServices
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
@@ -76,6 +77,7 @@ import java.util.Calendar
 import java.util.Date
 
 
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -102,6 +104,15 @@ fun GastosScreen (
         topBar = {
             TopAppBar(
                 title = { Text(text = "Gastos App", color = MaterialTheme.colorScheme.primary) },
+                actions = {
+                    IconButton(
+                        onClick = { viewModel.clean() }) {
+                        Icon(
+                            imageVector = Icons.Outlined.CleaningServices,
+                            contentDescription = "Clear"
+                        )
+                    }
+                }
             )
         },
         content = {
@@ -160,6 +171,7 @@ fun MainScreen(
     }
 
 }
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun Register(
@@ -194,93 +206,116 @@ fun Register(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                ) {
+                ){
+
+                            showDatePicker(context = context, modifier = Modifier
+                                .fillMaxWidth()
+                            )
+                            OutlinedTextField(
+                                value = gastoViewModel.suplidor,
+                                onValueChange = { },
+                                isError = gastoViewModel.idSuplidorError,
+                                readOnly = true,
+                                maxLines = 1,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .onGloballyPositioned { coordinates ->
+                                        mTextFieldSize = coordinates.size.toSize()
+                                    },
+                                label = { Text("Suplidor", overflow = TextOverflow.Ellipsis) },
+                                trailingIcon = {
+                                    if (expanded) {
+                                        Icon(imageVector = Icons.Filled.ArrowDropUp, "contentDescription",
+                                            Modifier.clickable { expanded = !expanded })
+                                    } else {
+                                        Icon(imageVector = Icons.Filled.ArrowDropDown, "contentDescription",
+                                            Modifier.clickable { expanded = !expanded })
+                                    }
+
+                                }
+                            )
+                            DropdownMenu(
+                                expanded = expanded,
+                                onDismissRequest = { expanded = false },
+                                modifier = Modifier
+                                    .width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
+                            ) {
+                                uiSuplidoresState.suplidores.forEach { suplidor ->
+                                    DropdownMenuItem(text = { Text(text = suplidor.nombres) }, onClick = {
+                                        gastoViewModel.onIdForSuplidorChange("${suplidor.idSuplidor}")
+                                        gastoViewModel.suplidor = suplidor.nombres
+                                        expanded = !expanded
+                                    })
+                                }
+                            }
+                        }
+
+
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween
+                )
+                {
                     OutlinedTextField(
-                        value = gastoViewModel.suplidor,
-                        onValueChange = { },
-                        isError = gastoViewModel.idSuplidorError,
-                        readOnly = true,
-                        maxLines = 1,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .onGloballyPositioned { coordinates ->
-                                mTextFieldSize = coordinates.size.toSize()
-                            },
-                        label = { Text("Selecciona al Suplidor") },
-                        trailingIcon = {
-                            if (expanded) {
-                                Icon(imageVector = Icons.Filled.ArrowDropUp, "contentDescription",
-                                    Modifier.clickable { expanded = !expanded })
-                            } else {
-                                Icon(imageVector = Icons.Filled.ArrowDropDown, "contentDescription",
-                                    Modifier.clickable { expanded = !expanded })
-                            }
-
-                        }
+                            .weight(1f)
+                        ,
+                        value = gastoViewModel.concepto,
+                        label = { Text(text = "Concepto") },
+                        singleLine = true,
+                        onValueChange = gastoViewModel::onConceptoChange,
+                        isError = gastoViewModel.conceptoError,
+                        keyboardOptions = KeyboardOptions.Default.copy(
+                            imeAction = ImeAction.Next,
+                            keyboardType = KeyboardType.Text
+                        )
                     )
-                    DropdownMenu(
-                        expanded = expanded,
-                        onDismissRequest = { expanded = false },
+                    OutlinedTextField(
                         modifier = Modifier
-                            .width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
-                    ) {
-                        uiSuplidoresState.suplidores.forEach { suplidor ->
-                            DropdownMenuItem(text = { Text(text = suplidor.nombres) }, onClick = {
-                                gastoViewModel.onIdForSuplidorChange("${suplidor.idSuplidor}")
-                                gastoViewModel.suplidor = suplidor.nombres
-                                expanded = !expanded
-                            })
-                        }
-                    }
+                            .fillMaxWidth()
+                            .weight(1f),
+                        value = gastoViewModel.ncf,
+                        label = { Text(text = "Ncf") },
+                        singleLine = true,
+                        onValueChange = gastoViewModel::onNcfChange,
+                        isError = gastoViewModel.ncfError,
+                        keyboardOptions = KeyboardOptions.Default.copy(
+                            imeAction = ImeAction.Next,
+                            keyboardType = KeyboardType.Text
+                        )
+                    )
                 }
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(),
-                    value = gastoViewModel.concepto,
-                    label = { Text(text = "Concepto") },
-                    singleLine = true,
-                    onValueChange = gastoViewModel::onConceptoChange,
-                    isError = gastoViewModel.conceptoError,
-                    keyboardOptions = KeyboardOptions.Default.copy(
-                        imeAction = ImeAction.Next,
-                        keyboardType = KeyboardType.Text
-                    )
-                )
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(),
-                    value = gastoViewModel.ncf,
-                    label = { Text(text = "Ncf") },
-                    singleLine = true,
-                    onValueChange = gastoViewModel::onNcfChange,
-                    isError = gastoViewModel.ncfError,
-                    keyboardOptions = KeyboardOptions.Default.copy(
-                        imeAction = ImeAction.Next,
-                        keyboardType = KeyboardType.Text
-                    )
-                )
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(),
-                    value = gastoViewModel.itbis,
-                    label = { Text(text = "Itbis") },
-                    singleLine = true,
-                    onValueChange = gastoViewModel::onItbisChange,
-                    isError = gastoViewModel.itbisError,
-                    keyboardOptions = KeyboardOptions.Default.copy(
-                        imeAction = ImeAction.Next,
-                        keyboardType = KeyboardType.Number
-                    )
-                )
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(),
-                    value = gastoViewModel.monto,
-                    label = { Text(text = "Monto") },
-                    singleLine = true,
-                    onValueChange = gastoViewModel::onMontoChange,
-                    isError = gastoViewModel.montoError,
-                    keyboardOptions = KeyboardOptions.Default.copy(
-                        imeAction = ImeAction.Next,
-                        keyboardType = KeyboardType.Number
-                    )
-                )
+               Row(
+                   horizontalArrangement = Arrangement.SpaceBetween
+               )
+               {
+                   OutlinedTextField(
+                       modifier = Modifier.fillMaxWidth()
+                           .weight(1f),
+                       value = gastoViewModel.itbis,
+                       label = { Text(text = "Itbis") },
+                       singleLine = true,
+                       onValueChange = gastoViewModel::onItbisChange,
+                       isError = gastoViewModel.itbisError,
+                       keyboardOptions = KeyboardOptions.Default.copy(
+                           imeAction = ImeAction.Next,
+                           keyboardType = KeyboardType.Number
+                       )
+                   )
+                   OutlinedTextField(
+                       modifier = Modifier.fillMaxWidth()
+                           .weight(1f),
+                       value = gastoViewModel.monto,
+                       label = { Text(text = "Monto") },
+                       singleLine = true,
+                       onValueChange = gastoViewModel::onMontoChange,
+                       isError = gastoViewModel.montoError,
+                       keyboardOptions = KeyboardOptions.Default.copy(
+                           imeAction = ImeAction.Next,
+                           keyboardType = KeyboardType.Number
+                       )
+                   )
+               }
             }
             Column(
                 modifier = Modifier
@@ -388,7 +423,7 @@ fun RowItemForAnGasto(
                     .padding(4.dp)
             ) {
                 ElevatedButton(
-                    onClick = { },
+                    onClick = {viewModel.updateTo(gasto)},
                     modifier = Modifier
                         .weight(1f)
                         .padding(end = 4.dp)
@@ -396,7 +431,7 @@ fun RowItemForAnGasto(
                     Text("Modificar")
                 }
                 OutlinedButton(
-                    onClick = { },
+                    onClick = {viewModel.deleteGastos(gasto.idGasto) },
                     modifier = Modifier
                         .weight(1.1f)
                         .padding(start = 4.dp),
@@ -434,7 +469,7 @@ fun showDatePicker(
     val datePickerDialog = DatePickerDialog(
         context,
         { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-            gastosViewModel.onFechaChange( "$dayOfMonth/$month/$year")
+            gastosViewModel.onFechaChange( "$year-$month-$dayOfMonth")
         }, year, month, day
     )
     OutlinedTextField(
@@ -449,7 +484,7 @@ fun showDatePicker(
             Icon(imageVector = Icons.Filled.DateRange, contentDescription ="date" )
         }
         },
-        label = { Text("Ingrese Fecha") },
+        label = { Text("Fecha") },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Next)
     )

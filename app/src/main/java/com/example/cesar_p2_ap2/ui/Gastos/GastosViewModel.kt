@@ -106,6 +106,7 @@ class GastosViewModel @Inject constructor(
         loadGastos()
     }
 
+
     fun validate() : Boolean{
         onFechaChange(fecha)
         onIdForSuplidorChange(idSuplidor)
@@ -116,6 +117,7 @@ class GastosViewModel @Inject constructor(
         return fechaError || idSuplidorError || conceptoError || ncfError ||  itbisError || montoError
 
     }
+
 
     fun clean()
     {
@@ -136,18 +138,30 @@ class GastosViewModel @Inject constructor(
         viewModelScope.launch {
 
             if (!validate()) {
-                val gasto = GastoDto(
-                    idGasto = id,
-                    fecha=fecha,
-                    idSuplidor= idSuplidor.toIntOrNull() ?:0,
-                    suplidor="",
-                    concepto=concepto,
-                    ncf = ncf,
-                    itbis = itbis.toDouble(),
-                    monto = monto.toDouble()
-                )
 
-                if (id!=0) repository.putGasto(id = id, gasto = gasto)   else repository.postGasto(gasto)
+                if (id!=0) {
+                    repository.putGasto(GastoDto(
+                        idGasto = id,
+                        fecha=fecha,
+                        idSuplidor= idSuplidor.toIntOrNull() ?:0,
+                        suplidor=suplidor,
+                        concepto=concepto,
+                        ncf = ncf,
+                        itbis = itbis.toDouble(),
+                        monto = monto.toDouble()
+                    ),id = id)
+                }
+                else
+                {
+                    println("guarde!!!!!")
+                    println("guarde!!!!!")
+                    println("guarde!!!!!")
+                    println("guarde!!!!!")
+
+                    repository.postGasto(GastoDto(idGasto = 0, fecha=fecha, idSuplidor=idSuplidor.toInt(),ncf = ncf,
+                    concepto=concepto, itbis= itbis.toDouble(), monto=monto.toDouble(), suplidor = suplidor))
+                    println("${fecha}\n${id}\n${itbis}\n${monto}\n${suplidor}\n${idSuplidor}\n${concepto}\n${ncf}")
+                }
 
                 message="guardado con exito!"
                 clean()
@@ -159,10 +173,11 @@ class GastosViewModel @Inject constructor(
         }
 
     }
-    fun deleteGastos(id: Int){
+    fun deleteGastos(id: Int?){
         viewModelScope.launch {
-            repository.deleteGasto(id)
-
+            if (id != null) {
+                repository.deleteGasto(id)
+            }
         }
         loadGastos()
     }
@@ -171,7 +186,7 @@ class GastosViewModel @Inject constructor(
         fecha = gasto.fecha.toString()
         idSuplidor =gasto.idSuplidor.toString()
         suplidor=gasto.suplidor.toString()
-        concepto =gasto.concepto
+        concepto =gasto.concepto.toString()
         ncf =gasto.ncf.toString()
         itbis= gasto.itbis.toString()
         monto =gasto.monto.toString()

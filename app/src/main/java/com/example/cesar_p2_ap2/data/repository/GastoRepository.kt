@@ -3,8 +3,10 @@ package com.example.cesar_p2_ap2.data.repository
 import com.example.cesar_p2_ap2.data.remote.api.GastoApi
 import com.example.cesar_p2_ap2.data.remote.dto.GastoDto
 import com.example.cesar_p2_ap2.util.Resource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import retrofit2.HttpException
 import java.io.IOException
@@ -39,9 +41,23 @@ class GastoRepository @Inject constructor(private val api:GastoApi){
     suspend fun deleteGasto(id: Int) {
         api.deleteGasto(id)
     }
-    suspend fun postGasto(gasto : GastoDto) {
-        api.postGasto(gasto)
+
+    suspend fun postGasto(gasto: GastoDto) : GastoDto?{
+        return try {
+            withContext(Dispatchers.IO) {
+                val response = api.postGasto(gasto)
+                println("Lo hice!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                if (response.isSuccessful) {
+                    response.body()
+                } else {
+                    null
+                }
+            }
+        } catch (e: Exception) {
+            throw e
+        }
     }
+
     suspend fun putGasto(gasto : GastoDto, id: Int) {
         api.putGasto(gasto,id)
     }

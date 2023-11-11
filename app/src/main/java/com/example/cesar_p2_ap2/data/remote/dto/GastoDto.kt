@@ -12,17 +12,17 @@ data class GastoDto (
     @Json(name = "idGasto")
     val idGasto : Int?,
     @Json(name = "fecha")
-    val fecha : String,
+    val fecha : String?,
     @Json(name = "idSuplidor")
-    val idSuplidor : Int,
+    val idSuplidor : Int?,
     @Json(name = "suplidor")
-    val suplidor : String,
+    val suplidor : String?,
     @Json(name = "concepto")
-    val concepto : String,
+    val concepto : String?,
     @Json(name="ncf")
-    val ncf : String,
+    val ncf : String?,
     @Json(name="itbis")
-    val itbis : Double,
+    val itbis : Double?,
     @Json(name = "monto")
-    val monto : Double
+    val monto : Double?
 )
